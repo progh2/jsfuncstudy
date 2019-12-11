@@ -123,6 +123,8 @@ function find(list, predicate) {
     if (predicate(list[i])) return list[i];
   }
 }
+
+console.log("find 하기!!");
 console.log(
   find(users2, function(u) {
     return u.getAge() == 25;
@@ -181,6 +183,7 @@ function bmatch1(key, val) {
   };
 }
 console.log(find(users, bmatch1("id", 1)));
+console.log(find(users, bmatch("id",2)));
 // {id: 1, name: "ID", age: 32}
 console.log(find(users, bmatch1("name", "HI")));
 // {id: 7, name: "HI", age: 24}
@@ -213,6 +216,10 @@ function bmatch(obj2, val) {
     return match(obj, obj2);
   };
 }
+console.log("!!!!!!!");
+console.log(bmatch("name","BJ"));
+console.log(find(users,bmatch("name","BJ")));
+
 console.log(
   match(find(users, bmatch("id", 3)), find(users, bmatch("name", "BJ")))
 );
@@ -239,6 +246,16 @@ console.log(findIndex(users, bmatch({ age: 36 })));
 // -1
 
 // 1-29 인자 늘리기
+console.log("@@@@@@@@@############@@@@@@@@@@@");
+let _2 = {};
+_2.map = function(list, iteratee){
+  let new_list = [];
+  for (let i = 0, len = list.length; i < len; i++){
+    new_list.push(iteratee(list[i], i, list));
+  }
+  return new_list;
+}
+console.log("@@@@@@@@@############@@@@@@@@@@@");
 var _ = {};
 _.map = function(list, iteratee) {
   var new_list = [];

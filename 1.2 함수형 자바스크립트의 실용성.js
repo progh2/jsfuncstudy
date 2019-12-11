@@ -245,6 +245,7 @@ function bvalue(key) {
   };
 }
 
+console.log("bvalue");
 bvalue("a")({ a: "hi", b: "hello" }); // hi
 
 // 1-14 bvalue로 map의 iteratee 만들기
